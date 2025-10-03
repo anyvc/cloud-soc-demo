@@ -29,3 +29,24 @@ if ($alerts.Count -gt 0) {
 } else {
   Write-Output "No alerts"
 }
+
+if ($event.eventName -in @("CreateUser","DeleteBucket","ConsoleLogin")) {
+    $alerts += [pscustomobject]@{
+      Time = $event.eventTime
+      Event = $event.eventName
+      User = ($event.userIdentity.userName)
+      IP = $event.sourceIPAddress
+      Note = "Suspicious event type"
+    }
+}
+
+# Optional: flag private IP ranges as unusual
+if ($event.sourceIPAddress -match '^(10\.|172\.16\.|192\.168\.)') {
+    $alerts += [pscustomobject]@{
+      Time = $event.eventTime
+      Event = $event.eventName
+      User = ($event.userIdentity.userName)
+      IP = $event.sourceIPAddress
+      Note = "Unusual private IP source"
+    }
+}

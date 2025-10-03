@@ -1,15 +1,29 @@
 [
   {
-    "Time": "2025-10-01T12:34:56Z",
+    "Time": "2025-10-03T15:56:37Z",
     "Event": "CreateUser",
-    "User": "alice",
+    "User": "user2",
+    "IP": "192.0.2.10",
+    "Note": "suspicious event matched basic rule"
+  },
+  {
+    "Time": "2025-10-03T15:56:37Z",
+    "Event": "DeleteBucket",
+    "User": "user2",
     "IP": "203.0.113.45",
     "Note": "suspicious event matched basic rule"
   },
   {
-    "Time": "2025-10-01T12:36:00Z",
-    "Event": "DeleteBucket",
-    "User": "bob",
+    "Time": "2025-10-03T15:56:37Z",
+    "Event": "CreateUser",
+    "User": "user1",
+    "IP": "203.0.113.45",
+    "Note": "suspicious event matched basic rule"
+  },
+  {
+    "Time": "2025-10-03T15:56:37Z",
+    "Event": "ConsoleLogin",
+    "User": "user3",
     "IP": "198.51.100.22",
     "Note": "suspicious event matched basic rule"
   }
