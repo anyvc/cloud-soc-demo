@@ -1,0 +1,31 @@
+name: Cloud SOC Detection
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch: # manual trigger
+  schedule:
+    - cron: "0 0 * * *"   # run daily at midnight UTC
+
+jobs:
+  run-detection:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup PowerShell
+        uses: actions/setup-powershell@v2
+
+      - name: Generate Logs
+        run: pwsh -File src/generate-cloud-logs.ps1 -Count 30
+
+      - name: Run Detection
+        run: pwsh -File src/detect.ps1 -LogPath logs/synthetic-cloudtrail.json -OutAlerts alerts/alerts.json
+
+      - name: Upload Alerts
+        uses: actions/upload-artifact@v4
+        with:
+          name: alerts-json
+          path: alerts/alerts.json
