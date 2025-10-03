@@ -1,0 +1,22 @@
+{
+  "Records": [
+    {
+      "eventVersion": "1.05",
+      "eventTime": "2025-10-01T12:34:56Z",
+      "eventName": "CreateUser",
+      "userIdentity": {"userName": "alice"},
+      "sourceIPAddress": "203.0.113.45",
+      "awsRegion": "us-east-1",
+      "requestParameters": {}
+    },
+    {
+      "eventVersion": "1.05",
+      "eventTime": "2025-10-01T12:36:00Z",
+      "eventName": "DeleteBucket",
+      "userIdentity": {"userName": "bob"},
+      "sourceIPAddress": "198.51.100.22",
+      "awsRegion": "us-east-1",
+      "requestParameters": {"bucketName":"sensitive-data"}
+    }
+  ]
+}

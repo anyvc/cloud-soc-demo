@@ -1,0 +1,16 @@
+[
+  {
+    "Time": "2025-10-01T12:34:56Z",
+    "Event": "CreateUser",
+    "User": "alice",
+    "IP": "203.0.113.45",
+    "Note": "suspicious event matched basic rule"
+  },
+  {
+    "Time": "2025-10-01T12:36:00Z",
+    "Event": "DeleteBucket",
+    "User": "bob",
+    "IP": "198.51.100.22",
+    "Note": "suspicious event matched basic rule"
+  }
+]
