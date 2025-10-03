@@ -3,9 +3,9 @@ name: Cloud SOC Detection
 on:
   push:
     branches: [ "main" ]
-  workflow_dispatch: # manual trigger
+  workflow_dispatch:
   schedule:
-    - cron: "0 0 * * *"   # run daily at midnight UTC
+    - cron: "0 0 * * *"   # daily at midnight UTC
 
 jobs:
   run-detection:
@@ -14,9 +14,6 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-
-      - name: Setup PowerShell
-        uses: actions/setup-powershell@v2
 
       - name: Generate Logs
         run: pwsh -File src/generate-cloud-logs.ps1 -Count 30
@@ -29,3 +26,8 @@ jobs:
         with:
           name: alerts-json
           path: alerts/alerts.json
+
+      - name: Print Alerts Summary
+        run: |
+          echo "=== ALERT SUMMARY ==="
+          cat alerts/alerts.json | jq -r '.[] | "\(.time) \(.event) \(.user) \(.ip) [\(.severity)] - \(.note)"'
