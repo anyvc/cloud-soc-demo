@@ -31,26 +31,26 @@
   </table>
 
   <script>
-    fetch("alerts/alerts.json")
-      .then(r => r.json())
-      .then(data => {
-        const tbody = document.querySelector("#alerts tbody");
-        data.forEach(a => {
-          const tr = document.createElement("tr");
-          tr.innerHTML = `
-            <td>${a.time}</td>
-            <td>${a.event}</td>
-            <td>${a.user}</td>
-            <td>${a.ip}</td>
-            <td class="${a.severity.toLowerCase()}">${a.severity}</td>
-            <td>${a.note}</td>
-          `;
-          tbody.appendChild(tr);
-        });
-      })
-      .catch(err => {
-        document.body.innerHTML += "<p style='color:red'>No alerts.json found. Run workflow first.</p>";
+  fetch("alerts.json")
+    .then(r => r.json())
+    .then(data => {
+      const tbody = document.querySelector("#alerts tbody");
+      data.forEach(a => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${a.time}</td>
+          <td>${a.event}</td>
+          <td>${a.user}</td>
+          <td>${a.ip}</td>
+          <td class="${a.severity.toLowerCase()}">${a.severity}</td>
+          <td>${a.note}</td>
+        `;
+        tbody.appendChild(tr);
       });
-  </script>
+    })
+    .catch(err => {
+      document.body.innerHTML += "<p style='color:red'>No alerts.json found. Run workflow first.</p>";
+    });
+</script>
 </body>
 </html>
