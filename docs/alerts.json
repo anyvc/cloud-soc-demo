@@ -1,0 +1,18 @@
+[
+  {
+    "time": "2025-10-03T23:00:00Z",
+    "event": "ConsoleLogin",
+    "user": "admin@example.com",
+    "ip": "192.168.1.100",
+    "severity": "HIGH",
+    "note": "Suspicious login detected"
+  },
+  {
+    "time": "2025-10-03T23:05:00Z",
+    "event": "S3BucketAccess",
+    "user": "dev@example.com",
+    "ip": "203.0.113.50",
+    "severity": "MEDIUM",
+    "note": "Unusual bucket read activity"
+  }
+]
