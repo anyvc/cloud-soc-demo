@@ -1,52 +1,56 @@
 # detect.ps1
-Param([string]$LogPath = "logs/sample-cloudtrail.json", [string]$OutAlerts = "alerts/alerts.json")
+Param(
+  [string]$LogPath = "logs/synthetic-cloudtrail.json",
+  [string]$OutAlerts = "alerts/alerts.json"
+)
 
-if (-not (Test-Path $LogPath)) { Write-Error "Log not found: $LogPath"; exit 2 }
+if (-not (Test-Path $LogPath)) {
+    Write-Error "Log not found: $LogPath"
+    exit 2
+}
 
 $json = Get-Content $LogPath -Raw | ConvertFrom-Json
 $alerts = @()
 
 foreach ($event in $json.Records) {
-  if ($event.eventName -in @("CreateUser","DeleteBucket","ConsoleLogin")) {
-    $alerts += [pscustomobject]@{
-      Time = $event.eventTime
-      Event = $event.eventName
-      User = ($event.userIdentity.userName)
-      IP = $event.sourceIPAddress
-      Note = "suspicious event matched basic rule"
+    # rule: suspicious event types
+    if ($event.eventName -in @("CreateUser","DeleteBucket","ConsoleLogin")) {
+        $alerts += [pscustomobject]@{
+            id       = [guid]::NewGuid().ToString()
+            time     = $event.eventTime
+            event    = $event.eventName
+            user     = $event.userIdentity.userName
+            ip       = $event.sourceIPAddress
+            severity = "High"
+            category = "IAM"
+            note     = "Suspicious event type"
+        }
     }
-  }
+
+    # rule: private IPs (cloud logs usually public IPs)
+    if ($event.sourceIPAddress -match '^(10\.|172\.16\.|192\.168\.)') {
+        $alerts += [pscustomobject]@{
+            id       = [guid]::NewGuid().ToString()
+            time     = $event.eventTime
+            event    = $event.eventName
+            user     = $event.userIdentity.userName
+            ip       = $event.sourceIPAddress
+            severity = "Medium"
+            category = "Networking"
+            note     = "Unusual private IP source"
+        }
+    }
 }
 
-# ensure alerts folder exists
+# output folder
 New-Item -ItemType Directory -Path (Split-Path $OutAlerts) -Force | Out-Null
-$alerts | ConvertTo-Json -Depth 5 | Set-Content -Path $OutAlerts
+$alerts | ConvertTo-Json -Depth 5 | Set-Content -Path $OutAlerts -Encoding UTF8
 
-# console summary for quick verification
+# console summary
 if ($alerts.Count -gt 0) {
-  Write-Output "ALERTS FOUND: $($alerts.Count)"
-  $alerts | Format-Table -AutoSize
+    Write-Output "==== ALERT SUMMARY ===="
+    $alerts | Select-Object time,event,user,ip,severity,note | Format-Table -AutoSize
+    Write-Output "Saved alerts -> $OutAlerts"
 } else {
-  Write-Output "No alerts"
-}
-
-if ($event.eventName -in @("CreateUser","DeleteBucket","ConsoleLogin")) {
-    $alerts += [pscustomobject]@{
-      Time = $event.eventTime
-      Event = $event.eventName
-      User = ($event.userIdentity.userName)
-      IP = $event.sourceIPAddress
-      Note = "Suspicious event type"
-    }
-}
-
-# Optional: flag private IP ranges as unusual
-if ($event.sourceIPAddress -match '^(10\.|172\.16\.|192\.168\.)') {
-    $alerts += [pscustomobject]@{
-      Time = $event.eventTime
-      Event = $event.eventName
-      User = ($event.userIdentity.userName)
-      IP = $event.sourceIPAddress
-      Note = "Unusual private IP source"
-    }
+    Write-Output "No alerts found"
 }

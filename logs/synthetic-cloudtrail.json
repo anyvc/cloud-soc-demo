@@ -2,21 +2,10 @@
   "Records": [
     {
       "eventVersion": "1.05",
-      "eventTime": "2025-10-03T15:56:37Z",
-      "eventName": "DescribeInstances",
+      "eventTime": "2025-10-03T15:58:32Z",
+      "eventName": "DeleteBucket",
       "userIdentity": {
-        "userName": "user1"
-      },
-      "sourceIPAddress": "172.16.0.12",
-      "awsRegion": "us-east-1",
-      "requestParameters": {}
-    },
-    {
-      "eventVersion": "1.05",
-      "eventTime": "2025-10-03T15:56:37Z",
-      "eventName": "StartInstances",
-      "userIdentity": {
-        "userName": "user3"
+        "userName": "user2"
       },
       "sourceIPAddress": "198.51.100.22",
       "awsRegion": "us-east-1",
@@ -24,43 +13,32 @@
     },
     {
       "eventVersion": "1.05",
-      "eventTime": "2025-10-03T15:56:37Z",
-      "eventName": "StartInstances",
+      "eventTime": "2025-10-03T15:58:32Z",
+      "eventName": "GetObject",
       "userIdentity": {
-        "userName": "user3"
+        "userName": "user1"
       },
-      "sourceIPAddress": "172.16.0.12",
+      "sourceIPAddress": "198.51.100.22",
       "awsRegion": "us-east-1",
       "requestParameters": {}
     },
     {
       "eventVersion": "1.05",
-      "eventTime": "2025-10-03T15:56:37Z",
-      "eventName": "StartInstances",
-      "userIdentity": {
-        "userName": "user2"
-      },
-      "sourceIPAddress": "172.16.0.12",
-      "awsRegion": "us-east-1",
-      "requestParameters": {}
-    },
-    {
-      "eventVersion": "1.05",
-      "eventTime": "2025-10-03T15:56:37Z",
+      "eventTime": "2025-10-03T15:58:32Z",
       "eventName": "ListBuckets",
       "userIdentity": {
-        "userName": "user3"
+        "userName": "user1"
       },
-      "sourceIPAddress": "192.0.2.10",
+      "sourceIPAddress": "10.0.5.4",
       "awsRegion": "us-east-1",
       "requestParameters": {}
     },
     {
       "eventVersion": "1.05",
-      "eventTime": "2025-10-03T15:56:37Z",
+      "eventTime": "2025-10-03T15:58:32Z",
       "eventName": "CreateUser",
       "userIdentity": {
-        "userName": "user2"
+        "userName": "user1"
       },
       "sourceIPAddress": "192.0.2.10",
       "awsRegion": "us-east-1",
@@ -68,19 +46,8 @@
     },
     {
       "eventVersion": "1.05",
-      "eventTime": "2025-10-03T15:56:37Z",
-      "eventName": "GetObject",
-      "userIdentity": {
-        "userName": "user2"
-      },
-      "sourceIPAddress": "172.16.0.12",
-      "awsRegion": "us-east-1",
-      "requestParameters": {}
-    },
-    {
-      "eventVersion": "1.05",
-      "eventTime": "2025-10-03T15:56:37Z",
-      "eventName": "GetObject",
+      "eventTime": "2025-10-03T15:58:32Z",
+      "eventName": "DescribeInstances",
       "userIdentity": {
         "userName": "user4"
       },
@@ -90,8 +57,8 @@
     },
     {
       "eventVersion": "1.05",
-      "eventTime": "2025-10-03T15:56:37Z",
-      "eventName": "DeleteBucket",
+      "eventTime": "2025-10-03T15:58:32Z",
+      "eventName": "DescribeInstances",
       "userIdentity": {
         "userName": "user2"
       },
@@ -101,18 +68,139 @@
     },
     {
       "eventVersion": "1.05",
-      "eventTime": "2025-10-03T15:56:37Z",
-      "eventName": "GetObject",
+      "eventTime": "2025-10-03T15:58:32Z",
+      "eventName": "DescribeInstances",
       "userIdentity": {
         "userName": "user2"
       },
-      "sourceIPAddress": "192.0.2.10",
+      "sourceIPAddress": "198.51.100.22",
       "awsRegion": "us-east-1",
       "requestParameters": {}
     },
     {
       "eventVersion": "1.05",
-      "eventTime": "2025-10-03T15:56:37Z",
+      "eventTime": "2025-10-03T15:58:32Z",
+      "eventName": "CreateUser",
+      "userIdentity": {
+        "userName": "user2"
+      },
+      "sourceIPAddress": "10.0.5.4",
+      "awsRegion": "us-east-1",
+      "requestParameters": {}
+    },
+    {
+      "eventVersion": "1.05",
+      "eventTime": "2025-10-03T15:58:32Z",
+      "eventName": "CreateUser",
+      "userIdentity": {
+        "userName": "user1"
+      },
+      "sourceIPAddress": "10.0.5.4",
+      "awsRegion": "us-east-1",
+      "requestParameters": {}
+    },
+    {
+      "eventVersion": "1.05",
+      "eventTime": "2025-10-03T15:58:32Z",
+      "eventName": "ListBuckets",
+      "userIdentity": {
+        "userName": "user1"
+      },
+      "sourceIPAddress": "172.16.0.12",
+      "awsRegion": "us-east-1",
+      "requestParameters": {}
+    },
+    {
+      "eventVersion": "1.05",
+      "eventTime": "2025-10-03T15:58:32Z",
+      "eventName": "DescribeInstances",
+      "userIdentity": {
+        "userName": "user2"
+      },
+      "sourceIPAddress": "198.51.100.22",
+      "awsRegion": "us-east-1",
+      "requestParameters": {}
+    },
+    {
+      "eventVersion": "1.05",
+      "eventTime": "2025-10-03T15:58:32Z",
+      "eventName": "GetObject",
+      "userIdentity": {
+        "userName": "user1"
+      },
+      "sourceIPAddress": "203.0.113.45",
+      "awsRegion": "us-east-1",
+      "requestParameters": {}
+    },
+    {
+      "eventVersion": "1.05",
+      "eventTime": "2025-10-03T15:58:32Z",
+      "eventName": "ListBuckets",
+      "userIdentity": {
+        "userName": "user3"
+      },
+      "sourceIPAddress": "203.0.113.45",
+      "awsRegion": "us-east-1",
+      "requestParameters": {}
+    },
+    {
+      "eventVersion": "1.05",
+      "eventTime": "2025-10-03T15:58:32Z",
+      "eventName": "CreateUser",
+      "userIdentity": {
+        "userName": "user3"
+      },
+      "sourceIPAddress": "203.0.113.45",
+      "awsRegion": "us-east-1",
+      "requestParameters": {}
+    },
+    {
+      "eventVersion": "1.05",
+      "eventTime": "2025-10-03T15:58:32Z",
+      "eventName": "CreateUser",
+      "userIdentity": {
+        "userName": "user1"
+      },
+      "sourceIPAddress": "198.51.100.22",
+      "awsRegion": "us-east-1",
+      "requestParameters": {}
+    },
+    {
+      "eventVersion": "1.05",
+      "eventTime": "2025-10-03T15:58:32Z",
+      "eventName": "ListBuckets",
+      "userIdentity": {
+        "userName": "user4"
+      },
+      "sourceIPAddress": "172.16.0.12",
+      "awsRegion": "us-east-1",
+      "requestParameters": {}
+    },
+    {
+      "eventVersion": "1.05",
+      "eventTime": "2025-10-03T15:58:32Z",
+      "eventName": "ConsoleLogin",
+      "userIdentity": {
+        "userName": "user3"
+      },
+      "sourceIPAddress": "203.0.113.45",
+      "awsRegion": "us-east-1",
+      "requestParameters": {}
+    },
+    {
+      "eventVersion": "1.05",
+      "eventTime": "2025-10-03T15:58:32Z",
+      "eventName": "DeleteBucket",
+      "userIdentity": {
+        "userName": "user4"
+      },
+      "sourceIPAddress": "198.51.100.22",
+      "awsRegion": "us-east-1",
+      "requestParameters": {}
+    },
+    {
+      "eventVersion": "1.05",
+      "eventTime": "2025-10-03T15:58:32Z",
       "eventName": "GetObject",
       "userIdentity": {
         "userName": "user2"
@@ -123,8 +211,30 @@
     },
     {
       "eventVersion": "1.05",
-      "eventTime": "2025-10-03T15:56:37Z",
-      "eventName": "DescribeInstances",
+      "eventTime": "2025-10-03T15:58:32Z",
+      "eventName": "GetObject",
+      "userIdentity": {
+        "userName": "user4"
+      },
+      "sourceIPAddress": "172.16.0.12",
+      "awsRegion": "us-east-1",
+      "requestParameters": {}
+    },
+    {
+      "eventVersion": "1.05",
+      "eventTime": "2025-10-03T15:58:32Z",
+      "eventName": "GetObject",
+      "userIdentity": {
+        "userName": "user3"
+      },
+      "sourceIPAddress": "192.0.2.10",
+      "awsRegion": "us-east-1",
+      "requestParameters": {}
+    },
+    {
+      "eventVersion": "1.05",
+      "eventTime": "2025-10-03T15:58:32Z",
+      "eventName": "DeleteBucket",
       "userIdentity": {
         "userName": "user3"
       },
@@ -134,34 +244,34 @@
     },
     {
       "eventVersion": "1.05",
-      "eventTime": "2025-10-03T15:56:37Z",
-      "eventName": "CreateUser",
+      "eventTime": "2025-10-03T15:58:32Z",
+      "eventName": "DescribeInstances",
       "userIdentity": {
-        "userName": "user1"
+        "userName": "user2"
       },
-      "sourceIPAddress": "203.0.113.45",
+      "sourceIPAddress": "198.51.100.22",
       "awsRegion": "us-east-1",
       "requestParameters": {}
     },
     {
       "eventVersion": "1.05",
-      "eventTime": "2025-10-03T15:56:37Z",
-      "eventName": "ConsoleLogin",
+      "eventTime": "2025-10-03T15:58:32Z",
+      "eventName": "StartInstances",
+      "userIdentity": {
+        "userName": "user2"
+      },
+      "sourceIPAddress": "198.51.100.22",
+      "awsRegion": "us-east-1",
+      "requestParameters": {}
+    },
+    {
+      "eventVersion": "1.05",
+      "eventTime": "2025-10-03T15:58:32Z",
+      "eventName": "ListBuckets",
       "userIdentity": {
         "userName": "user3"
       },
-      "sourceIPAddress": "198.51.100.22",
-      "awsRegion": "us-east-1",
-      "requestParameters": {}
-    },
-    {
-      "eventVersion": "1.05",
-      "eventTime": "2025-10-03T15:56:37Z",
-      "eventName": "DescribeInstances",
-      "userIdentity": {
-        "userName": "user1"
-      },
-      "sourceIPAddress": "198.51.100.22",
+      "sourceIPAddress": "10.0.5.4",
       "awsRegion": "us-east-1",
       "requestParameters": {}
     }
